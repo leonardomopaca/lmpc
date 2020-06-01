@@ -1,0 +1,63 @@
+<h2>My Heroes</h2>
+
+<ul class="heroes">
+    <li *ngFor="let hero of heroes" 
+    [class.selected]="hero === selectedHero" 
+    (click)="onSelect(hero)"> <!-- Ver comentário abaixo-->
+        <span class="badge">{{hero.id}}  </span>{{hero.name}}
+    </li>
+</ul>
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
+<!--
+<div *ngIf="selectedHero">
+    <h2>{{selectedHero.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedHero.id}}</div>
+    <div>
+        <label>Name:
+            <input [(ngModel)]="selectedHero.name" placeholder="Name"/>
+        </label>
+    </div>
+</div>
+-->
+<!--
+<h2>{{hero.name | uppercase}} Details</h2>
+<div><span>id: </span>{{hero.id}}</div>
+<div><span>name: </span>{{hero.name}}</div>
+
+
+
+ 
+<div>
+    <label>Name:
+        <input [(ngModel)]="hero.name" placeholder="Put name here"/>
+    </label>
+</div>
+
+-->
+
+
+<!--[(ngModel)] é a sintaxe de ligação de dados bidirecional da Angular
+
+Notice that the app stopped working when you added [(ngModel)].
+
+To see the error, open the browser development tools and look in the console for a message like
+Template parse errors:
+Can't bind to 'ngModel' since it isn't a known property of 'input'.
+
+Although ngModel is a valid Angular directive, it isn't available by default.
+
+It belongs to the optional FormsModule and you must opt-in to using it.
+
+
+-------------------------------------------
+The *ngFor is Angular's repeater directive. It repeats the host element for each element in a list.
+
+The syntax in this example is as follows:
+
+    <li> is the host element.
+    heroes holds the mock heroes list from the HeroesComponent class, the mock heroes list.
+    hero holds the current hero object for each iteration through the list.
+
+-->
