@@ -1,4 +1,4 @@
 package br.com.omni.leonardochallenge.exception;
 
-public class EntityNotFoundException {
+public class EntityNotFoundException extends RuntimeException {
 }
